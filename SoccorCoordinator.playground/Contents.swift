@@ -66,7 +66,6 @@ var herschelKrustofski = playerInfo(name: "Herschel Krustofski", height: "45", i
 players.append(herschelKrustofski)
 
 //part 2 (players will now be sorted into even teams)
-
 var teamSharks: [[String: String]] = []
 var teamRaptors: [[String: String]] = []
 var teamDragons: [[String: String]] = []
@@ -82,7 +81,7 @@ for player in players {
         unexperiencedPlayers.append(player)
     }
 }
-// now sorting experienced players into teams
+// now sorting experienced players into even teams
 for experiencedPlayer in experiencedPlayers {
     if experiencedPlayer.count > teamSharks.count && teamRaptors.count >= teamSharks.count && teamDragons.count >= teamSharks.count{
         teamSharks.append(experiencedPlayer)
@@ -93,7 +92,7 @@ for experiencedPlayer in experiencedPlayers {
     }
     
 }
-// now sorting unexperienced players into teams
+// now sorting unexperienced players into even teams
  for unexperiencedPlayer in unexperiencedPlayers {
  if players.count > teamSharks.count && teamRaptors.count >= teamSharks.count && teamDragons.count >= teamSharks.count{
  teamSharks.append(unexperiencedPlayer)
@@ -106,16 +105,29 @@ for experiencedPlayer in experiencedPlayers {
  }
 
 //part 3
-// making personalized letters for parents/guardians
+// making personalized letters for parents/guardians for each team
 
 
 var letters: [String] = []
 
 for player in teamSharks {
-    var msg: [String] = []
-    
-    
+    var msg = "Dear \(player["guardian"]!), I am happy to inform you that \(player["name"]!) is an official team member of the Sharks! And that practice will begin March 17th, at 3:00pm."
+    letters.append(msg)
+    print(msg)
 }
+
+for player in teamRaptors {
+    var msg = "Dear \(player["guardian"]!), I am happy to inform you that \(player["name"]!) is an official team member of the Raptors! And that practice will begin March 18th, at 1:00pm."
+    letters.append(msg)
+    print(msg)
+}
+
+for player in teamDragons {
+    var msg = "Dear \(player["guardian"]!), I am happy to inform you that \(player["name"]!) is an official team member of the Dragons! And that practice will begin March 17th, at 1:00pm."
+    letters.append(msg)
+    print(msg)
+}
+
 
 
 
